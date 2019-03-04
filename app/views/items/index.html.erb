@@ -1,0 +1,61 @@
+<body>
+  <main>
+
+
+      <section class="slice slice-lg bg-cover bg-size--cover" style="background-image: url('https://www.freewebheaders.com/wordpress/wp-content/uploads/cute-sleepy-kitten.jpg');">
+          <div class="container py-lg">
+              <div class="row">
+                  <div class="col-lg-5">
+                      <h2 class="h1 text-white">Fall Accessories</h2>
+                      <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+
+                      <p class="lead text-white mt-4">There is only that moment and the incredible certainty that everything under the sun has been written by one hand only.</p>
+                      <a href="#" class="btn btn-white btn-circle mt-4">Start shopping</a>
+                  </div>
+              </div>
+          </div>
+          <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+              <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+                  <defs></defs>
+                  <path d="" class="shape-fill-white" />
+              </svg>
+          </div>
+      </section>
+
+      <section class="slice slice-lg" id="sct-products">
+          <div class="container">
+              <div class="row">
+                <% @items.each do |item| %>
+                  <div class="col-lg-6 col-sm-6 mb-5">
+                      <div class="card card-product no-border shadow shadow--hover">
+                          <div class="card-image">
+                              <a href="shop-product.html">
+                                  <img alt="Image placeholder" src="<%= item.image_url %>" class="img-center" width="465" height="300">
+                              </a>
+
+                              <span class="ribbon ribbon-right ribbon-primary rounded-circle"><%= ["New", "-30%", "Top", "-50%", "-70%"].sample %></span>
+                              
+                          </div>
+                          <div class="card-body pt-0 text-center">
+                              <a href="shop-product.html" class="card-title"><%= item.title %></a>
+                              <span class="card-price">$<%= item.price %>USD</span> 
+                             
+                          </div>
+                          <div class="card-product-actions" data-animation-in="slideInLeft" data-animation-out="slideOutLeft">
+                              <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Add to cart">
+                                  <i class="fas fa-shopping-bag"></i>
+                              </button>
+                              <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Wishlist">
+                                  <i class="fas fa-heart"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                 <% end %> 
+              </div>
+
+          </div>
+      </section>
+
+  </main>
+</body>
