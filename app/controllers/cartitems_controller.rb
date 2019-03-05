@@ -5,10 +5,6 @@ class CartitemsController < ApplicationController
 
   	@cart_id = current_user.cart.id
 
-  	puts params
-  	puts "$" * 60
-  	puts session
-
   	
   	Cartitem.create(item_id: @item_id, cart_id: @cart_id)
 
