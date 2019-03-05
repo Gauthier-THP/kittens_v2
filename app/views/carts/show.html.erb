@@ -1,0 +1,80 @@
+
+
+
+
+        <section class="slice slice-lg">
+            <div class="container">
+                <!-- Shopping cart -->
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Prix</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% total_price = 0 %>
+
+                            <% @cart.items.each do |item| %>
+
+
+                                <tr>
+                                    <!-- Colonne Produit--->
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
+                                            <div class="media-body">
+                                                <div class="lh-100">
+                                                    <span class="text-dark font-weight-bold mb-0"> <%= item.title %></span>
+                                                </div>
+                                                <span class="font-weight-bold text-muted"> <%= item.description  %></span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                <!-- Colonne prix -->
+                                    <td>
+                                        <span class="font-weight-bold text-dark">$<%= item.price %></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <%= link_to cart_cartitem_path(item) do %> 
+                                            <i class="fas fa-trash-alt"></i>
+                                        <% end %>
+                                    </td>
+                                </tr>
+
+                            <% total_price += item.price %>
+
+                           <% end %>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Cart information -->
+                <div class="mt-5 pt-5 delimiter-top">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 col-lg-4 text-center">
+
+                            <h5 class="mb-0">Total : $<%= total_price %></h5>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice bg-gradient-primary">
+            <span class="tongue tongue-top">
+        <i class="fas fa-angle-up"></i>
+    </span>
+            <div class="container text-center">
+                <h6 class="text-white">Confirm order or return to shop to add more items</h6>
+                <%= link_to "Confirm order", root_path, class: 'btn btn-white btn-circle mt-4' %>
+            </div>
+        </section>
+
+    </main>

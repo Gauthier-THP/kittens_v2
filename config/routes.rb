@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
   resources :items, only: [:index, :show]
-  resources :carts, except: [:index, :new, :destroy]
+  
+  resources :carts, except: [:index, :new, :destroy] do
+    resources :cartitems, only: [:create, :destroy]
+  end
+
   resources :orders
 
 	root "items#index"
