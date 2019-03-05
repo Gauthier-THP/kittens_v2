@@ -18,35 +18,35 @@
 
                             <% total_price = 0 %>
 
-                            <% @cart.items.each do |item| %>
+                            <% @cartitems.each do |cartitem| %>
 
 
                                 <tr>
                                     <!-- Colonne Produit--->
                                     <td>
                                         <div class="media align-items-center">
-                                            <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
+                                            <img alt="Image placeholder" class="mr-3" src="<%= cartitem.item.image_url %>" style="width: 80px;">
                                             <div class="media-body">
                                                 <div class="lh-100">
-                                                    <span class="text-dark font-weight-bold mb-0"> <%= item.title %></span>
+                                                    <span class="text-dark font-weight-bold mb-0"> <%= cartitem.item.title %></span>
                                                 </div>
-                                                <span class="font-weight-bold text-muted"> <%= item.description  %></span>
+                                                <span class="font-weight-bold text-muted"> <%= cartitem.item.description  %></span>
                                             </div>
                                         </div>
                                     </td>
 
                                 <!-- Colonne prix -->
                                     <td>
-                                        <span class="font-weight-bold text-dark">$<%= item.price %></span>
+                                        <span class="font-weight-bold text-dark">$<%= cartitem.item.price %></span>
                                     </td>
                                     <td class="text-right">
-                                        <%= link_to cart_cartitem_path(item) do %> 
+                                        <%= link_to cart_cartitem_path(cart_id: @cart, id: cartitem), method: :delete do %> 
                                             <i class="fas fa-trash-alt"></i>
                                         <% end %>
                                     </td>
                                 </tr>
 
-                            <% total_price += item.price %>
+                            <% total_price += cartitem.item.price %>
 
                            <% end %>
 

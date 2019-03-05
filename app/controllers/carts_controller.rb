@@ -2,6 +2,7 @@ class CartsController < ApplicationController
     
       def show
         @cart = Cart.find(params[:id])
+        @cartitems = @cart.cartitems
       end
     
       def new
