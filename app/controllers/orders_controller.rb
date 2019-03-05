@@ -17,7 +17,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.create(user_id: current_user.id)
+    for each current_user.cart.item do |item|  
+      Orderitem.create(order_id: @order.id, item_id: item.id)
+    end
     if @order.save
       redirect_to @order
     else
