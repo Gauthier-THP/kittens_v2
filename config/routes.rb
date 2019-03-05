@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show] do
+  	resources :cartitems, only: [:create]
+  end
   
   resources :carts, except: [:index, :new, :destroy] do
-    resources :cartitems, only: [:create, :destroy]
+    resources :cartitems, only: [:destroy]
   end
 
   resources :orders
