@@ -21,7 +21,7 @@
                             <% @cartitems.each do |cartitem| %>
 
 
-                                <tr>
+                                <tr id="cartitem-line-<%= cartitem.id %>">
                                     <!-- Colonne Produit--->
                                     <td>
                                         <div class="media align-items-center">
@@ -40,7 +40,7 @@
                                         <span class="font-weight-bold text-dark">$<%= cartitem.item.price %></span>
                                     </td>
                                     <td class="text-right">
-                                        <%= link_to cart_cartitem_path(cart_id: @cart, id: cartitem), method: :delete do %> 
+                                        <%= link_to cart_cartitem_path(cart_id: @cart, id: cartitem), method: :delete, remote: true do %> 
                                             <i class="fas fa-trash-alt"></i>
                                         <% end %>
                                     </td>

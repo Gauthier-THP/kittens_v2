@@ -21,7 +21,10 @@ class OrdersController < ApplicationController
     current_user.cart.items.each do |item|  
       Orderitem.create(order_id: @order.id, item_id: item.id)
     end
+
     if @order.save
+      @cart = current_user.cart
+      @cart.void
       redirect_to @order
     else
       render :new
