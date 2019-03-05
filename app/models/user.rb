@@ -8,4 +8,11 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
+
+  after_create :assign_cart_to_new_user
+
+  def assign_cart_to_new_user
+    @cart = Cart.create(user: self)
+  end 
+
 end
