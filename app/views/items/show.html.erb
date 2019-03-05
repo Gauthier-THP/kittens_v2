@@ -51,7 +51,7 @@
                             <div class="row-6 align-items-center">                         
                             <div>
                                     <p class="d-flex justify-content-start" style="font-size: 20px; padding-top: 20px;"> <%= @item.price %> $ </p>
-                                    <%= link_to "Ajouter au panier", cart_cartitems_path(@cart), method: :post, class: "btn btn-primary" %>
+                                    <%= link_to "Ajouter au panier", item_cartitems_path(@item), method: :post, class: "btn btn-primary" %>
                             </div>
 
                     </div>

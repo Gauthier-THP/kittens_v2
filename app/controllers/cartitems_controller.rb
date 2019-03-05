@@ -2,10 +2,9 @@ class CartitemsController < ApplicationController
 
   def create
 
-
   	@cart_id = current_user.cart.id
+   	@item_id = params[:item_id]
 
-  	
   	Cartitem.create(item_id: @item_id, cart_id: @cart_id)
 
   end
