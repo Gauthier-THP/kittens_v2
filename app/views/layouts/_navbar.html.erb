@@ -34,6 +34,7 @@
                     <% end %>
                     <% if user_signed_in? %>
                     <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+                    <a class="dropdown-item"><%= current_user.email %></a>
                     <% else %>
                     <% end %>
             </li>

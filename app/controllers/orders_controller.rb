@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(user_id: current_user.id)
-    for each current_user.cart.item do |item|  
+    current_user.cart.items.each do |item|  
       Orderitem.create(order_id: @order.id, item_id: item.id)
     end
     if @order.save
