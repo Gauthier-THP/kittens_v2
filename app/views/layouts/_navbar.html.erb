@@ -1,43 +1,46 @@
 
    <!-- Main navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1" aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar_example_1">
-    <a class="navbar-brand" href="#">
-<img src="https://i.imgur.com/fKKtyvF.png" style="width: 100px; height: 100px;"alt="">
-        </a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link"<%= link_to "Accueil ", root_path %></a>
-            </li>
-            <% if user_signed_in? %>
-            <li class="nav-item">
-                <a class="nav-link" <%= link_to "Mon panier", cart_path(current_user.id) %> </a>
-            </li>
-            <% else %>
-            <% end %>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li> 
-
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
-                <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+<nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark"> 
+<div class="container">
+            <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1" aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar_example_1">
+                <a class="navbar-brand" href="#">
+                <img src="https://i.imgur.com/fKKtyvF.png" style="width: 100px; height: 100px;"alt=""></a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link"<%= link_to "Accueil ", root_path %></a>
+                    </li>
                     <% if user_signed_in? %>
-                    <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
-                    <a class="dropdown-item"><%= current_user.email %></a>
+                    <li class="nav-item">
+                        <a class="nav-link" <%= link_to "Mon panier", cart_path(current_user.id) %> </a>
+                    </li>
                     <% else %>
-                    <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %> </a>
-                    <a class="dropdown-item" <%= link_to "S'inscrire",  new_user_registration_path %> </a>
                     <% end %>
-            </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li> 
+                </ul>
+
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                        <% if user_signed_in? %>
+                        <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+                        <a class="dropdown-item"><%= current_user.email %></a>
+                        <% else %>
+                        <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %> </a>
+                        <a class="dropdown-item" <%= link_to "S'inscrire",  new_user_registration_path %> </a>
+                        <% end %>
+                    </div>
+                </li>
+                
+            </ul>
             
-        </ul>
-    </div>
+        </div>
+        </div>
 </nav>
