@@ -42,7 +42,7 @@ end
 User.destroy_all
 Cart.destroy_all
 10.times do
-    user = User.create!(email: Faker::Internet.email, password: Faker::String.random(12))
+    user = User.create!(email: Faker::Internet.unique.email, password: Faker::String.random(12))
     cart = Cart.create!(user: user)
 end
 
