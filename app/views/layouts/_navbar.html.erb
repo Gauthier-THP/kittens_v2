@@ -7,11 +7,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar_example_1">
     <a class="navbar-brand" href="#">
-          <img src="http://placehold.it/150x50?text=Logo" alt="">
+          <img src="http://placehold.it/50x50?text=Logo" alt="">
         </a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link"<%= link_to "Accueil", root_path %></a>
+                <a class="nav-link"<%= link_to "Accueil ", root_path %></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Mon panier</a>
@@ -24,7 +24,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connexion</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connexion<i class="fas fa-user"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
                     <% if user_signed_in? %>
                     <% else %>
