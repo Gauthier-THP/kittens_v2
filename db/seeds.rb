@@ -35,14 +35,14 @@ image = ["https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827
 
 Item.destroy_all
 20.times do
-    item = Item.create!(title: Faker::Name.first_name, description: Faker::Quote.yoda, price: Faker::Number.decimal(2), image_url: image.sample)
+    item = Item.create!(title: Faker::Name.first_name, description: Faker::Lorem.sentence(5), price: Faker::Number.decimal(2), image_url: image.sample)
 end
 
 # seed users & carts
 User.destroy_all
 Cart.destroy_all
 10.times do
-    user = User.create!(email: Faker::Internet.email, password: Faker::String.random(12))
+    user = User.create!(email: Faker::Internet.unique.email, password: Faker::String.random(12))
     cart = Cart.create!(user: user)
 end
 
