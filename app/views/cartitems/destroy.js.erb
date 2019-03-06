@@ -1,2 +1,9 @@
-console.log($("#cartitem-line-<%= @cartitem.id %>"))
-$("#cartitem-line-<%= @cartitem.id %>").hide(500)
+//Selection of the cartitem with an id
+$cartLine = $("#cartitem-line-<%= @cartitem.id %>")
+$cartLine.hide(500)
+
+//Selection of the span in the title h5 which contains our total price
+$total = $('h5.mb-0 span')
+
+//Replacement of the total price using the variable calculated in the cartitems_controller
+$total.text("<%= @new_total %>")
