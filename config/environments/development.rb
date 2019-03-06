@@ -60,7 +60,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Here we added command for Devise mailer 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'kittens-shop-development.herokuapp.com' }
 
   #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
