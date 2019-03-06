@@ -6,6 +6,7 @@ class CartsController < ApplicationController
       def show
         @cart = Cart.find(params[:id])
         @cartitems = @cart.cartitems
+        @order = Order.new
       end
     
       def new
