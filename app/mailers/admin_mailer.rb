@@ -5,7 +5,6 @@ class AdminMailer < ApplicationMailer
     @order = order 
 
 
-
-    mail(to: "azerty966@yopmail.com", subject: 'New order') 
+    mail(to: "gauthier.sayarath@gmail.com", subject: 'New order') 
   end
 end

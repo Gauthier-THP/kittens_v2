@@ -57,7 +57,7 @@
                             <div class="row-6 align-items-center">                         
                             <div>
                                     <p class="d-flex justify-content-start" style="font-size: 20px; padding-top: 20px;"> <%= @item.price %> $ </p>
-                                    <% if current_user.cart.include(@item) %>
+                                    <% unless current_user.cart.include(@item) %>
                                         <%= link_to "Ajouter au panier", item_cartitems_path(@item), method: :post, class: "btn btn-primary" %>
                                     <% else %>
                                         <p class="d-flex justify-content-start" style="font-size: 18px; padding-top: 10px;"> Already added to cart. </p>

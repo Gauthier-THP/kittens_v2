@@ -4,13 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>New order !</h1>
-   
-      <p>Customer : <%= @order.user.email %></p>
+    <h1>congratz</h1>
+      <p>Hi <%= @order.user.email %></p>
       <section class="slice slice-lg">
 
         <div class="container text-center">
-            <h3>Summary of the order</h3>
+            <h3>Summary of your order</h3>
         </div>
 
         <div class="container">
@@ -19,9 +18,9 @@
                 <table class="table align-items-center">
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>Produit</th>
                             <th></th>
-                            <th>Price</th>
+                            <th>Prix</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,8 +35,10 @@
                                 <td>
                                     <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
                                 </td>
+                            
                                 <td>
                                     <div class="media align-items-center">
+                                        
                                         <div class="media-body">
                                             <div class="lh-100">
                                                 <span class="text-dark font-weight-bold mb-0"> <%= item.title %></span>
@@ -72,6 +73,7 @@
                 </div>
             </div>
 
+        
         </div>
     </section>
   </body>
