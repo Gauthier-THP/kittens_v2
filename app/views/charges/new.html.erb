@@ -1,3 +1,11 @@
+<div class="container pt-lg">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow zindex-100">
+        <div class="card-body px-md-5 py-5">
+          <div class="text-center mb-5">
+
+<br />
 <%= form_tag order_charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -6,13 +14,24 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $ <%= @amount%> </span>
+      <h2 class="h3">Left to pay: $ <%= @amount%></h2>
     </label>
+    <br />
   </article>
-
+      <br />
+       
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Your kittens pictures"
           data-amount= <%@amount%>
           data-locale="auto"></script>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% end %>
+
