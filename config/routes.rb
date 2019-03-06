@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :cartitems, only: [:destroy]
   end
 
+  resources :orders
+  resources :users, only: [:show]
   resources :orders do
     resources :charges, only: [:new, :create]
   end
