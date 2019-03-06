@@ -10,10 +10,15 @@
                       <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
                       <p class="lead text-white mt-4">The best pictures in the world! No, on EAAAAAARTH! Meooooow</p>
-                      <% if user_signed_in? %>
+
+                      <!-- Display a button if you are an admin or an unauthentified user-->
+                      <% if user_signed_in? && current_user.is_admin %>
+                       <%= link_to "Add an item", new_item_path, class: "btn btn-white btn-circle mt-4" %>
+                     
                       <% else %>
                       <%= link_to "Start shopping", user_session_path, class: "btn btn-white btn-circle mt-4" %>
                       <% end %>
+
                   </div>
               </div>
           </div>
@@ -38,7 +43,7 @@
 
                                     <!-- Display the image with a url or with an image upload-->
                                     <%if item.image.attached?%>
-                                      <%= image_tag(item.image, alt: 'image', :class => "img-center") %>
+                                      <%= image_tag(item.image, alt: 'image', :class => "img-center", style: "max-width:490px;") %>
 
                                     <%else%>                                    
                                     <img alt="Image placeholder" src="<%= item.image_url %>" class="img-center">                              

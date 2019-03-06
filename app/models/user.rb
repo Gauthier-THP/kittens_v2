@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :orders
 
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
 
   after_create :assign_cart_to_new_user
 
