@@ -32,7 +32,15 @@
                     <div class="col-lg-6">
                             
                             <a href="">
-                                <img alt="Image placeholder" src=" <%= @item.image_url %>">
+                                                                    <!-- Display the image with a url or with an image upload-->
+                                    <%if @item.image.attached?%>
+                                      <%= image_tag(@item.image, alt: 'Image placeholder') %>
+
+                                    <%else%> 
+
+                                    <img alt="Image placeholder" src=" <%= @item.image_url %>">
+                                    
+                                    <%end%>
                             </a>
 
                     </div>

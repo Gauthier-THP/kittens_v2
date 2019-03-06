@@ -34,7 +34,15 @@
                                     <!-- Colonne Produit--->
                                     <td>
                                         <div class="media align-items-center">
-                                            <img alt="Image placeholder" class="mr-3" src="<%= cartitem.item.image_url %>" style="width: 80px;">
+
+                                                <%if cartitem.item.image.attached?%>
+                                                  <%= image_tag(cartitem.item.image, alt: 'image', class: "mr-3",style: "width: 80px;") %>
+
+                                                <%else%>                                    
+                                                        <img alt="Image placeholder" class="mr-3" src="<%= cartitem.item.image_url %>" style="width: 80px;">
+                                                <%end%>
+
+
                                             <div class="media-body">
                                                 <div class="lh-100">
                                                     <span class="text-dark font-weight-bold mb-0"> <%= cartitem.item.title %></span>
