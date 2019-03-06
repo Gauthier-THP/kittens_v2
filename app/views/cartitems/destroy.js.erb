@@ -7,3 +7,7 @@ $total = $('h5.mb-0 span')
 
 //Replacement of the total price using the variable calculated in the cartitems_controller
 $total.text("<%= @new_total %>")
+
+<% if @new_total == 0 %>
+  $("main.Site-content").replaceWith($("<%= j render 'empty_cart' %>"))
+<% end %>
