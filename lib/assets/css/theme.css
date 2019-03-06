@@ -6164,7 +6164,7 @@ input[type='button'].btn-block
 {
     position: relative;
 
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     padding: 1rem 1.5rem;
 
     border: .0625rem solid transparent;
