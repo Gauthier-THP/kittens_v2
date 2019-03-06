@@ -26,9 +26,12 @@
                 </ul>
 
             <ul class="navbar-nav ml-auto ">
+
+            <% if user_signed_in? %>
             <li class="nav-item">
-                        <a class="nav-link" <%= link_to current_user.email, cart_path(current_user.id) %> </a>
-                    </li>
+                <a class="nav-link" <%= link_to current_user.email, cart_path(current_user.id) %> </a>
+            </li>
+            <% end %>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
@@ -41,6 +44,7 @@
                         <% end %>
                     </div>
                 </li>
+            
                 
             </ul>
             
