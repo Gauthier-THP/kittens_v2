@@ -11,17 +11,17 @@
                 <img src="https://i.imgur.com/fKKtyvF.png" style="width: 100px; height: 100px;"alt=""></a>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link"<%= link_to "Accueil ", root_path %></a>
+                        <a class="nav-link"<%= link_to "Home ", root_path %></a>
                     </li>
                     <% if user_signed_in? %>
                     <li class="nav-item">
-                        <a class="nav-link" <%= link_to "Mon panier", cart_path(current_user.id) %> </a>
+                        <a class="nav-link" <%= link_to "My cart", cart_path(current_user.id) %> </a>
                     </li>
                     <% else %>
                     <% end %>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="https://www.youtube.com/watch?v=04854XqcfCY">About us</a>
                     </li> 
                 </ul>
 

@@ -4,9 +4,8 @@ class CartitemsController < ApplicationController
 
   	@cart_id = current_user.cart.id
    	@item_id = params[:item_id]
-
-  	Cartitem.create(item_id: @item_id, cart_id: @cart_id)
-
+    Cartitem.create(item_id: @item_id, cart_id: @cart_id)
+    flash[:success] = "Added to Cart!"
 		redirect_to root_path
   end
 

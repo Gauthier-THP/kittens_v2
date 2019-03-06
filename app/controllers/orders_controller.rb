@@ -25,8 +25,6 @@ class OrdersController < ApplicationController
     
 
     if @order.save
-      @cart = current_user.cart
-      @cart.void
       redirect_to @order
     else
       render :new
