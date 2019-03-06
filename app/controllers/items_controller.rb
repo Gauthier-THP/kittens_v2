@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
 		@item.price = Faker::Number.decimal(2)
     	@item.image.attach(params[:image])
 
+    	
+
 		if @item.save
 
 		flash[:success] = "Your item was created"
