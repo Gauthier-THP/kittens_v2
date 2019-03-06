@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find(params[:id])
-		@cart = current_user.cart
+		unless current_user == nil
+			@cart = current_user.cart
+		end
 	end
 
 	def new

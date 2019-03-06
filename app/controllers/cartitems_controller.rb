@@ -1,5 +1,6 @@
 class CartitemsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def create
 
   	@cart_id = current_user.cart.id
