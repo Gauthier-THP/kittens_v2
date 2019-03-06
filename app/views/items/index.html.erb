@@ -6,11 +6,14 @@
           <div class="container py-lg">
               <div class="row">
                   <div class="col-lg-5">
-                      <h2 class="h1 text-white">Accessories</h2>
+                      <h2 class="h1 text-white">My kittens shop</h2>
                       <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
-                      <p class="lead text-white mt-4">There is only that moment and the incredible certainty that everything under the sun has been written by one hand only.</p>
+                      <p class="lead text-white mt-4">The best pictures in the world! No, on EAAAAAARTH! Meooooow</p>
+                      <% if user_signed_in? %>
+                      <% else %>
                       <%= link_to "Start shopping", user_session_path, class: "btn btn-white btn-circle mt-4" %>
+                      <% end %>
                   </div>
               </div>
           </div>
