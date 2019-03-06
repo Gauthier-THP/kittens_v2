@@ -11,6 +11,7 @@ class ChargesController < ApplicationController
       @order = Order.find(params[:order_id])
       @amount = @order.amount
       @amount_in_cents = (@amount * 100).round
+      @cart = current_user.cart
     
       customer = Stripe::Customer.create({
         email: params[:stripeEmail],
@@ -24,7 +25,8 @@ class ChargesController < ApplicationController
         currency: 'usd',
       })
 
-      @order.status = "paid"
+      @order.update_attribute(:status, "paid")
+      @cart.void
     
     rescue Stripe::CardError => e
       flash[:error] = e.message
