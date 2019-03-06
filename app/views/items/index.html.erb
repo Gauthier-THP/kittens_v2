@@ -29,11 +29,22 @@
           <div class="container">
               <div class="row">
                 <% @items.each do |item| %>
-                  <div class="col-lg-3 col-sm-6 mb-5">
+                  <div class="col-lg-6 col-sm-6 mb-5">
                       <div class="card card-product no-border shadow shadow--hover">
                           <div class="card-image">
+
+                            <!-- Link containing an image. On click it redirects to the page show of item-->
                               <%= link_to item_path(item) do %>
-                                  <img alt="Image placeholder" src="<%= item.image_url %>" class="img-center" width="200" height="200">
+
+                                    <!-- Display the image with a url or with an image upload-->
+                                    <%if item.image.attached?%>
+                                      <%= image_tag(item.image, alt: 'image', :class => "img-center") %>
+
+                                    <%else%>                                    
+                                    <img alt="Image placeholder" src="<%= item.image_url %>" class="img-center">                              
+                                    <%end%>
+
+
                               <% end %>
                               
                           </div>

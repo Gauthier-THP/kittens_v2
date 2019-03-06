@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :items, only: [:index, :show] do
+  resources :items, only: [:index, :show, :new, :create] do
   	resources :cartitems, only: [:create]
   end
   

@@ -1,0 +1,31 @@
+
+
+        <div class="container h-100vh d-flex align-items-center">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5 col-xl-4">
+
+                        <div class="text-center mb-5">
+                            <h6 class="h3">Add an item</h6>
+                            <p class="text-muted mb-0">Upload your photo item to proceed</p>
+                        </div>
+                        <span class="clearfix"></span>
+
+
+                        <%= form_tag items_path, multipart: true, class:"text-center mb-3" do %>
+
+						  	<%= file_field_tag :image  %> <br><br>
+
+
+						 	<%= submit_tag "Créer un item", class: "btn btn-primary" %>
+
+						<% end %>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
