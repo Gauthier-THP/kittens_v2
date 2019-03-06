@@ -12,8 +12,30 @@ class CartitemsController < ApplicationController
 
   def destroy
 
+    #declaration of the variable necessary to destroy and item and calculate its new total
   	@cart = Cart.find(params[:cart_id])
   	@cartitem = Cartitem.find(params[:id])
+
+#---------------------------------------------------
+    #Calculation  of the total price when an item is deleted in the cart
+    
+    price_cartitem = @cartitem.item.price
+
+    allcartitems = @cart.cartitems 
+
+    items_price = []
+
+    allcartitems.each do |cartitem|
+
+      items_price << cartitem.item.price
+
+    end
+
+    @new_total = items_price.sum - price_cartitem
+    #end of the calculation
+#------------------------------------------------
+
+    #destruction of an item in the cart
 		@cartitem.destroy
 		
 		respond_to do |format|
