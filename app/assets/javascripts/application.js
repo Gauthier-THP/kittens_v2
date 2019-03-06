@@ -22,3 +22,9 @@
 //= require dist/js/bootstrap.bundle.min
 //= require dist/in-view.min 
 //= require lib/highlight
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $('.alert').alert();
+});
+
