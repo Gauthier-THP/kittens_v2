@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
   def user_order_email(order)
     @order = order 
 
-    mail(to: @order.user.email, subject: 'New order') 
+    mail(to: @order.user.email, subject: 'Congratz') 
   end
 end
