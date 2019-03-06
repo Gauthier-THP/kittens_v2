@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :users, only: [:show]
+  resources :orders do
+    resources :charges, only: [:new, :create]
+  end
 
 	root "items#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

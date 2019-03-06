@@ -37,6 +37,10 @@
 
                     </div>
 
+                    <% if flash[:success] %>
+                        <div class="success"><%= flash[:success] %></div>
+                    <% end %>
+
                     <div class="col-lg-6 justify-content-center" style="padding-left: 2px;">
                             <!-- Product title -->
                             <h2 class="h5 text-capitalize"> <%= @item.title %> </h2>
@@ -48,10 +52,19 @@
                                 <p class="text-sm lh-150"> <%= @item.description %> </p>
                             </div>
 
+                        
+
                             <div class="row-6 align-items-center">                         
                             <div>
                                     <p class="d-flex justify-content-start" style="font-size: 20px; padding-top: 20px;"> <%= @item.price %> $ </p>
+                                    
+                                    
+                                    <% if @cart.includeitem(@item.id) == true %>
+                                    
+                                    <p class="d-flex justify-content-start" style="font-size: 18px; padding-top: 10px;"> Already added to cart. </p>
+                                    <% else %>
                                     <%= link_to "Ajouter au panier", item_cartitems_path(@item), method: :post, class: "btn btn-primary" %>
+                                    <% end %>
                             </div>
 
                     </div>

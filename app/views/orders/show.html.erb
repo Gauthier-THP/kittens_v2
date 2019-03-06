@@ -1,0 +1,90 @@
+
+
+
+
+        <section class="slice slice-lg">
+
+            <div class="container text-center">
+                <h3>Summary of your order</h3>
+            </div>
+
+            <div class="container">
+                <!-- Shopping cart -->
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Prix</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% total_price = 0 %>
+
+                            <% @order.items.each do |item| %>
+
+
+                                <tr id="cartitem-line-<%= item.id %>">
+                                    <!-- Colonne Produit--->
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
+                                            <div class="media-body">
+                                                <div class="lh-100">
+                                                    <span class="text-dark font-weight-bold mb-0"> <%= item.title %></span>
+                                                </div>
+                                                <span class="font-weight-bold text-muted"> <%= item.description  %></span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                <!-- Colonne prix -->
+                                    <td>
+                                        <span class="font-weight-bold text-dark">$<%= item.price %></span>
+                                    </td>
+                                </tr>
+
+                            <% total_price += item.price %>
+
+                           <% end %>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Cart information -->
+                <div class="mt-5 pt-5 delimiter-top">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 col-lg-4 text-center">
+
+                            <h5 class="mb-0">Total : $<%= total_price %></h5>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceed to Payment : only if user has not already paid -->
+
+    <% if @order.status == "unpaid" %>
+
+            <section class="slice bg-gradient-primary">
+                <span class="tongue tongue-top">
+            <i class="fas fa-angle-up"></i>
+        </span>
+                <div class="container text-center">
+                    <%= link_to "Proceed to payment", {:controller => "charges", :action => "new", :order_id => @order.id }, class: 'btn btn-white btn-circle mt-4' %>
+                </div>
+            </section>
+        </main>
+    
+    <% else %>
+
+            <div class="container text-center">
+                <h6>This order has already been paid, check your inbox ;)</h6>
+                <br>
+            </div>
+    <% end %>

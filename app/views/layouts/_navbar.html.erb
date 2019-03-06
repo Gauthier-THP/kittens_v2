@@ -11,11 +11,11 @@
                 <img src="https://i.imgur.com/fKKtyvF.png" style="width: 100px; height: 100px;"alt=""></a>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link"<%= link_to "Accueil ", root_path %></a>
+                        <a class="nav-link"<%= link_to "Home ", root_path %></a>
                     </li>
                     <% if user_signed_in? %>
                     <li class="nav-item">
-                        <a class="nav-link" <%= link_to "Mon panier", cart_path(current_user.id) %> </a>
+                        <a class="nav-link" <%= link_to "My cart", cart_path(current_user.id) %> </a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" <%= link_to "Mon profil", user_path(current_user.id) %> </a>
@@ -25,17 +25,20 @@
                     <% end %>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="https://www.youtube.com/watch?v=04854XqcfCY">About us</a>
                     </li> 
                 </ul>
 
             <ul class="navbar-nav ml-auto ">
+            <li class="nav-item">
+                        <a class="nav-link" <%= link_to current_user.email, cart_path(current_user.id) %> </a>
+                    </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
                     <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
                         <% if user_signed_in? %>
                         <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
-                        <a class="dropdown-item"><%= current_user.email %></a>
                         <% else %>
                         <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %> </a>
                         <a class="dropdown-item" <%= link_to "S'inscrire",  new_user_registration_path %> </a>

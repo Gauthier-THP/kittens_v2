@@ -17,14 +17,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(user_id: current_user.id)
+    @order = Order.create(user_id: current_user.id, amount:0, status: "unpaid")
     current_user.cart.items.each do |item|  
       Orderitem.create(order_id: @order.id, item_id: item.id)
+      @order.amount = @order.amount + item.price
     end
+    
 
     if @order.save
-      @cart = current_user.cart
-      @cart.void
       redirect_to @order
     else
       render :new
