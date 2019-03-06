@@ -1,98 +1,111 @@
+<% if @cart.items.count >= 1 %>
 
+<section class="slice slice-lg">
+    <div class="container">
 
-
-
-        <section class="slice slice-lg">
-            <div class="container">
-
-
-            <div class="container text-center">
-                <h3>My Cart</h3>
-            </div>
-
-
-    <% if @cart.items.count >= 1 %>
-
-                <!-- Shopping cart -->
-                <div class="table-responsive">
-                    <table class="table align-items-center">
-                        <thead>
-                            <tr>
-                                <th>Produit</th>
-                                <th>Prix</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <% total_price = 0 %>
-
-                            <% @cartitems.each do |cartitem| %>
-
-
-                                <tr id="cartitem-line-<%= cartitem.id %>">
-                                    <!-- Colonne Produit--->
-                                    <td>
-                                        <div class="media align-items-center">
-                                            <img alt="Image placeholder" class="mr-3" src="<%= cartitem.item.image_url %>" style="width: 80px;">
-                                            <div class="media-body">
-                                                <div class="lh-100">
-                                                    <span class="text-dark font-weight-bold mb-0"> <%= cartitem.item.title %></span>
-                                                </div>
-                                                <span class="font-weight-bold text-muted"> <%= cartitem.item.description  %></span>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                <!-- Colonne prix -->
-                                    <td>
-                                        <span class="font-weight-bold text-dark">$<%= cartitem.item.price %></span>
-                                    </td>
-                                    <td class="text-right">
-                                        <%= link_to cart_cartitem_path(cart_id: @cart, id: cartitem), method: :delete, remote: true do %> 
-                                            <i class="fas fa-trash-alt"></i>
-                                        <% end %>
-                                    </td>
-                                </tr>
-
-                            <% total_price += cartitem.item.price %>
-
-                           <% end %>
-
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Cart information -->
-                <div class="mt-5 pt-5 delimiter-top">
-                    <div class="row justify-content-center">
-                        <div class="col-md-5 col-lg-4 text-center">
-
-                            <h5 class="mb-0">Total : $<span><%= total_price %></span></h5>
-            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="slice bg-gradient-primary">
-            <span class="tongue tongue-top">
-        <i class="fas fa-angle-up"></i>
-    </span>
-            <div class="container text-center">
-                <h6 class="text-white">We know you love kittens... If so, you should click right here ;)</h6>
-                <%= link_to "Confirm order", orders_path, method: 'POST', class: 'btn btn-white btn-circle mt-4' %>
-            </div>
-        </section>
-
-    <% else %>
 
         <div class="container text-center">
-                <h6>This cart is void.</h6>
-                <%= link_to "Start shopping right now !", root_path, class: 'btn btn-primary btn-circle mt-4' %>
+            <h3>My Cart</h3>
         </div>
 
-    <% end %>
+        <!-- Shopping cart -->
+        <div class="table-responsive">
+            <table class="table align-items-center">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
 
-    </main>
+                    <% total_price = 0 %>
+
+                    <% @cartitems.each do |cartitem| %>
+
+
+                    <tr id="cartitem-line-<%= cartitem.id %>">
+                        <!-- Colonne Produit--->
+                        <td>
+                            <div class="media align-items-center">
+                                <img alt="Image placeholder" class="mr-3" src="<%= cartitem.item.image_url %>" style="width: 80px;">
+                                <div class="media-body">
+                                    <div class="lh-100">
+                                        <span class="text-dark font-weight-bold mb-0">
+                                            <%= cartitem.item.title %></span>
+                                    </div>
+                                    <span class="font-weight-bold text-muted">
+                                        <%= cartitem.item.description  %></span>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- Colonne prix -->
+                        <td>
+                            <span class="font-weight-bold text-dark">$
+                                <%= cartitem.item.price %></span>
+                        </td>
+                        <td class="text-right">
+                            <%= link_to cart_cartitem_path(cart_id: @cart, id: cartitem), method: :delete, remote: true do %>
+                            <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                        </td>
+                    </tr>
+
+                    <% total_price += cartitem.item.price %>
+
+                    <% end %>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cart information -->
+        <div class="mt-5 pt-5 delimiter-top">
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-lg-4 text-center">
+
+                    <h5 class="mb-0">Total : $<span>
+                            <%= total_price %></span></h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slice bg-gradient-primary">
+    <span class="tongue tongue-top">
+        <i class="fas fa-angle-up"></i>
+    </span>
+    <div class="container text-center">
+        <h6 class="text-white">We know you love kittens... If so, you should click right here ;)</h6>
+        <%= link_to "Confirm order", orders_path, method: 'POST', class: 'btn btn-white btn-circle mt-4' %>
+    </div>
+</section>
+
+<% else %>
+<section class="slice slice-xl d-flex align-items-center">
+    <div class="container pt-lg">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="text-center">
+                    <div class="icon icon-xl icon-shape icon-pink rounded-circle">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h6 class="h4 my-4">Your cart is empty.</h6>
+                    <p class="px-5">
+                        Your cart is currently empty. Return to our shop and check out the latest offers. We have some
+                        great items that are waiting for you.
+                    </p>
+                    <%= link_to "Start shopping right now !", root_path, class: 'btn btn-dark btn-circle mt-5' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<% end %>
+
+</main>
