@@ -44,10 +44,10 @@
 
                                 <!-- Display the image with a url or with an image upload-->
                                 <%if item.image.attached?%>
-                                <%= image_tag(item.image, alt: 'image', :class => "img-center", style: "max-width:490px;") %>
+                                <%= image_tag(item.image, alt: 'image', :class => "img-center", style: "width:400px") %>
 
                                 <%else%>
-                                <img alt="Image placeholder" src="<%= item.image_url %>" class="img-center">
+                                <img alt="Image placeholder" src="<%= item.image_url %>" class="img-center" style="width: 400px; height: 265px">
                                 <%end%>
 
 
