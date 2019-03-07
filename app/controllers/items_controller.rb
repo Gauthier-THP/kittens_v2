@@ -29,14 +29,14 @@ class ItemsController < ApplicationController
 
     	
 
-		if @item.save
+		if @item.save && @item.image.attached?
 
-		flash[:success] = "Your item was created"
-		redirect_to root_path
+		flash[:success] = "Your item was created !"
+		redirect_to root_path			
 
 		else
 
-		flash[:danger] = "Your item was not created"
+		flash[:danger] = "Your item was not created. Did you upload a file to create it ?"
 		redirect_to new_item_path
 
 		end
