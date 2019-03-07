@@ -22,7 +22,7 @@ class ChargesController < ApplicationController
         customer: customer.id,
         amount: @amount_in_cents,
         description: 'Rails Stripe customer',
-        currency: 'usd',
+        currency: 'eur',
       })
 
       @order.update_attribute(:status, "paid")
