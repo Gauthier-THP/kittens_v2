@@ -46,6 +46,8 @@ Cart.destroy_all
     user = User.create!(email: Faker::Internet.unique.email, password: Faker::String.random(12))
 end
 
+super_admin = User.create!(email: "liobe.malogo@gmail.com", password: "thpgang2019", is_admin: true)
+
 # seed cartitems
 Cartitem.destroy_all
 20.times do
