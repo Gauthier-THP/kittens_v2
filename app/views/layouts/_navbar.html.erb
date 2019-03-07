@@ -14,7 +14,7 @@
                     </li>
                     <% if user_signed_in? %>
                     <li class="nav-item">
-                        <a class="nav-link" <%= link_to "My cart", cart_path(current_user.id) %> </a>
+                        <a class="nav-link" <%= link_to "My cart ( #{current_user.cart.items.length} )", cart_path(current_user.id) %> </a>
                     </li>
 
                     <% else %>

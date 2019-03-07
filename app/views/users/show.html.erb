@@ -1,15 +1,17 @@
 <!-- Account navigation -->
-<br/>
+<br />
 <div class="container">
     <h3 class="text-center">My Profile</h3>
     <%= link_to "Edit your profile", edit_user_registration_path, class: 'btn btn-primary btn-circle mt-4' %>
-        <br/>
-        <br/>
+    <br />
+    <br />
 
-        <div class="container">
-            <h3 class="text-primary">Welcome to your profile page <%= current_user.email %></h3>
-            <br/>
-        </div>
+    <div class="container">
+        <h3 class="text-primary">Welcome to your profile page
+            <%= current_user.email %>
+        </h3>
+        <br /><br>
+    </div>
 </div>
 </section>
 <div class="container">
@@ -17,37 +19,41 @@
 
         <% @orders.each do |order| %>
 
-            <table class="table table-primary">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                </thead>
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
 
-                <h5>Total amount : <%= order.amount %> €, ordered on: <%=order.updated_at.strftime("%F at %I:%M%p") %> </h5>
+            <h5>Total amount :
+                <%= order.amount %> €, ordered on:
+                <%=order.updated_at.strftime("%F at %I:%M%p") %>
+            </h5>
 
-                <% order.items.each do |item| %>
+            <% order.items.each do |item| %>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                <%= item.title %>
-                            </td>
-                            <td>
-                                <%= item.price %>
-                            </td>
-                        </tr>
-                        <% end %>
-                            <% end %>
-                    </tbody>
-            </table>
+            <tbody>
+                <tr>
+                    <td>
+                        <%= item.title %>
+                    </td>
+                    <td>
+                        <%= item.price %>
+                    </td>
+                </tr>
+                
+                
+            </tbody>
+            <% end %>
+        </table><br><br>
+        <% end %>
     </div>
 </div>
-<br/>
+<br />
 
 </div>
 </section>
 </main>
-<br/>
-
+<br />
