@@ -39,6 +39,7 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
 
+
                             <!-- Link containing an image. On click it redirects to the page show of item-->
                               <%= link_to item_path(item.title) do %>
 
@@ -52,26 +53,8 @@
                                 <%end%>
 
 
-                              <% end %>
-                              
-                          </div>
-                          <div class="card-body pt-0 text-center">
-                              <%= link_to item.title, item_path(item.title), class: "card-title" %>
-                              <span class="card-price"><%= item.price %> €</span> 
-                             
-                          </div>
-                          <div class="card-product-actions" data-animation-in="slideInLeft" data-animation-out="slideOutLeft">
-                              <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Add to cart">
-                                  <i class="fas fa-shopping-bag"></i>
-                              </button>
-                              <button type="button" class="btn-product-action" data-toggle="tooltip" data-original-title="Wishlist">
-                                  <i class="fas fa-heart"></i>
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-                 <% end %> 
-              </div>
+
+                                <% end %>
 
 
                             </div>
