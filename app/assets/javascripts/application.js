@@ -20,7 +20,8 @@
 //VENDOR
 //= require dist/jquery.min
 //= require dist/js/bootstrap.bundle.min
-//= require dist/in-view.min 
+//= require dist/clipboard.min
+//= require dist/in-view.min
 //= require lib/highlight
 $( document ).ready(function() {
     console.log( "ready!" );

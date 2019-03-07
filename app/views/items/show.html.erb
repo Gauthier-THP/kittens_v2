@@ -32,9 +32,10 @@
                     <div class="col-lg-6">
                             
                             <a href="">
-                                                                    <!-- Display the image with a url or with an image upload-->
+                                        
+                                     <!-- Display the image with a url or with an image upload-->
                                     <%if @item.image.attached?%>
-                                      <%= image_tag(@item.image, alt: 'Image placeholder') %>
+                                      <%= image_tag(@item.image, alt: 'Image placeholder', style: "max-width:500px;") %>
 
                                     <%else%> 
 
@@ -64,7 +65,7 @@
 
                             <div class="row-6 align-items-center">                         
                             <div>
-                                    <p class="d-flex justify-content-start" style="font-size: 20px; padding-top: 20px;"> <%= @item.price %> $ </p>
+                                    <p class="d-flex justify-content-start" style="font-size: 20px; padding-top: 20px;"> <%= @item.price %> € </p>
                          
                                     <% if current_user != nil && @cart.includeitem(@item.id) == true %>
                                     
