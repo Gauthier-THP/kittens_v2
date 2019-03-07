@@ -30,7 +30,16 @@
                                     <!-- Colonne Produit--->
                                     <td>
                                         <div class="media align-items-center">
-                                            <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
+                                            
+                                             <!-- Display the image with a url or with an image upload-->
+                                            <%if item.image.attached?%>
+                                              <%= image_tag(item.image, alt: 'Image placeholder', class:"mr-3" ,style: "width:80px;") %>
+
+                                            <%else%> 
+
+                                            <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">                                            
+                                            <%end%>
+
                                             <div class="media-body">
                                                 <div class="lh-100">
                                                     <span class="text-dark font-weight-bold mb-0"> <%= item.title %></span>
@@ -42,7 +51,7 @@
 
                                 <!-- Colonne prix -->
                                     <td>
-                                        <span class="font-weight-bold text-dark">$<%= item.price %></span>
+                                        <span class="font-weight-bold text-dark"><%= item.price %> €</span>
                                     </td>
                                 </tr>
 
@@ -59,7 +68,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-5 col-lg-4 text-center">
 
-                            <h5 class="mb-0">Total : $<%= total_price %></h5>
+                            <h5 class="mb-0">Total : <%= total_price %> €</h5>
             
                         </div>
                     </div>

@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_one :cart
   has_many :orders
 
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i, message: "please enter a valid e-mail adress" }
 
   after_create :assign_cart_to_new_user
 
