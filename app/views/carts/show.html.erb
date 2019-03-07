@@ -55,7 +55,7 @@
                         <!-- Colonne prix -->
                         <td>
                             <span class="font-weight-bold text-dark">
-                                <%= cartitem.item.price %>< €/span>
+                                <%= cartitem.item.price %> €</span>
                         </td>
                         <td class="text-right">
                             <%= link_to cart_cartitem_path(cart_id: @cart, id: cartitem), method: :delete, remote: true do %>
