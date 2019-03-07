@@ -34,7 +34,10 @@ class CartitemsController < ApplicationController
     @new_total = items_price.sum - price_cartitem
     #end of the calculation
 #------------------------------------------------
+    #cart number of item navbar
+    @length = @cart.items.length - 1
 
+#------------------------------------------------
     #destruction of an item in the cart
 		@cartitem.destroy
 		

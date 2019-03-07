@@ -11,3 +11,5 @@ $total.text("<%= @new_total %>")
 <% if @new_total == 0 %>
   $("main.Site-content").replaceWith($("<%= j render 'empty_cart' %>"))
 <% end %>
+
+$("a.my-cart").text("My cart ( <%= @length %> )")
