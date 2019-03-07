@@ -29,8 +29,9 @@ class ItemsController < ApplicationController
 
     	
 
-		if @item.save && @item.image.attached?
+		if  @item.image.attached?
 
+		@item.save
 		flash[:success] = "Your item was created !"
 		redirect_to root_path			
 
