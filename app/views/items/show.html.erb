@@ -66,7 +66,7 @@
                             <div>
                                     <p class="d-flex justify-content-start" style="font-size: 20px; padding-top: 20px;"> <%= @item.price %> $ </p>
                          
-                                    <% if @cart.includeitem(@item.id) == true %>
+                                    <% if current_user != nil && @cart.includeitem(@item.id) == true %>
                                     
                                     <p class="d-flex justify-content-start" style="font-size: 18px; padding-top: 10px;"> Already added to cart. </p>
                                     <% else %>
