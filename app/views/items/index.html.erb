@@ -39,8 +39,10 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
 
-                                <!-- Link containing an image. On click it redirects to the page show of item-->
-                                <%= link_to item_path(item) do %>
+
+                            <!-- Link containing an image. On click it redirects to the page show of item-->
+                              <%= link_to item_path(item.title) do %>
+
 
                                 <!-- Display the image with a url or with an image upload-->
                                 <%if item.image.attached?%>
@@ -51,7 +53,9 @@
                                 <%end%>
 
 
+
                                 <% end %>
+
 
                             </div>
                             <div class="card-body pt-0 text-center">
