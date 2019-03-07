@@ -35,7 +35,7 @@ image = ["https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827
 
 Item.destroy_all
 20.times do |i|
-    item = Item.create!(title: Faker::Name.first_name.unique, description: Faker::Lorem.sentence(5), price: Faker::Number.decimal(2), image_url: image[i])
+    item = Item.create!(title: Faker::Name.unique.first_name, description: Faker::Lorem.sentence(5), price: Faker::Number.decimal(2), image_url: image[i])
 end
 
 # seed users & carts
