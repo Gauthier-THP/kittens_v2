@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>New order !</h1>
+    <h1>New order !</h1><br><br>
    
-      <p>Customer : <%= @order.user.email %></p>
+      <p>Hi Admin,<br><br>You have a new order from customer :<br><%= @order.user.email %></p>
       <section class="slice slice-lg"><br>
 
         <div class="container text-center">
@@ -34,7 +34,11 @@
                             <tr id="cartitem-line-<%= item.id %>">
                                 <!-- Colonne Produit--->
                                 <td>
-                                    <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
+                                    <%if item.image.attached?%>
+                                        <%= image_tag(item.image, alt: 'Image placeholder', class:"mr-3", style:"width: 80px;") %>
+                                    <%else%>
+                                        <img alt="Image placeholder" class="mr-3" src="<%= item.image_url %>" style="width: 80px;">
+                                    <%end%>
                                 </td>
                                 <td>
                                     <div class="media align-items-center">
