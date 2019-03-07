@@ -1,76 +1,51 @@
 <!-- Account navigation -->
-
+<br/>
 <div class="container">
-    <div class="d-flex">
-        <a href="account-profile-public.html" class="btn btn-icon btn-group-nav shadow btn-secondary">
-            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-            <span class="btn-inner--text d-none d-md-inline-block">Mon Profil</span>
-        </a>
-    </div>
-    <div class="col-md-6">
-    <div class=" card bg-gradient-primary border-0 shadow mb-4">
-        <div class="card-body py-3">
-            <div class="row row-grid align-items-center">
-                <div class="col-lg-8">
-                    <div class="media align-items-center">
-                        <a href="#" class="avatar avatar-lg rounded-circle mr-3">
-                            <img alt="Image placeholder" src="/assets/img/prv/img-7-800x600">
-                        </a>
-                        <div class="media-body">
-                            <h5 class="text-white mb-0">Bérénice Bourgon</h5>
-                            <div>
-                                <form>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
-                                        <span class="text-white">Change avatar</span>
-                                    </label>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <h3 class="text-center">My Profile</h3>
+    <%= link_to "Edit your profile", edit_user_registration_path, class: 'btn btn-primary btn-circle mt-4' %>
+        <br/>
+        <br/>
+
+        <div class="container">
+            <h3 class="text-primary">Welcome to your profile page <%= current_user.email %></h3>
+            <br/>
         </div>
-    </div>
-    </div>
+</div>
+</section>
+<div class="container">
+    <div class="col-8">
 
-    <!-- General -->
+        <% @orders.each do |order| %>
 
-    <div class="col">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="form-control-label">First name</label>
-                <input class="form-control" type="text" placeholder="Enter your first name">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label">Last name</label>
-                <input class="form-control" type="text" placeholder="Also your last name">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label">Email</label>
-                <input class="form-control" type="email" placeholder="name@exmaple.com">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label">Phone</label>
-                <input class="form-control" type="text" placeholder="+40-777 245 549">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label">Address</label>
-                <input class="form-control" type="text" placeholder="Enter your home address">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label">City</label>
-                <input class="form-control" type="text" placeholder="City">
-            </div>
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
 
-            <div>
-                <button type="button" class="btn btn-sm btn-primary">Save changes</button>
-                <button type="button" class="btn btn-link">Cancel</button>
-            </div>
-        </div>
-        </form>
+                <h5>Total amount : <%= order.amount %> €, ordered on: <%=order.updated_at.strftime("%F at %I:%M%p") %> </h5>
+
+                <% order.items.each do |item| %>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= item.title %>
+                            </td>
+                            <td>
+                                <%= item.price %>
+                            </td>
+                        </tr>
+                        <% end %>
+                            <% end %>
+                    </tbody>
+            </table>
     </div>
 </div>
+<br/>
+
 </div>
 </section>
 </main>
