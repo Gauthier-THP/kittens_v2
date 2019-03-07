@@ -25,5 +25,6 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     $('.alert').alert();
+    $('.alert').delay(3000);
 });
 
