@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+	  before_action :authenticate_user!, only: [:new]
+	  before_action :is_admin, only: [:new]
+
 
 	def index
 		@items = Item.all
@@ -26,15 +29,28 @@ class ItemsController < ApplicationController
 
     	
 
-		if @item.save
+		if  @item.image.attached?
 
-		flash[:success] = "Your item was created"
-		redirect_to root_path
+		@item.save
+		flash[:success] = "Your item was created !"
+		redirect_to root_path			
 
 		else
 
-		flash[:danger] = "Your item was not created"
+		flash[:danger] = "Your item was not created. Did you upload a file to create it ?"
 		redirect_to new_item_path
+
+		end
+
+	end
+
+	private
+
+	def is_admin
+
+		if current_user.is_admin != true
+			flash[:danger] = "You are not an admin and therefore do not have access to this page"
+			redirect_to root_path
 
 		end
 
