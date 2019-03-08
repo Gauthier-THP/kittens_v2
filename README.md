@@ -12,7 +12,4 @@ En production va sur le site suivant => https://kittens-shop.herokuapp.com/
 
 ## Voir les fonctionnalités admin
 
-Tu peux créer des items en tant qu'admin. Pour cela utilise les identifiants suivants :
-
-liobe.malogo@gmail.com
-thpgang2019
+C'est possible et on le fera ensemble en correction
